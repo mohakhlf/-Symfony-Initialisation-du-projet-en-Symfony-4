@@ -3,10 +3,16 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
     </head>
     <body>
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
     </body>
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+        <!-- fontawesome -->
+        <script src="https://kit.fontawesome.com/0f77bf6f9a.js" crossorigin="anonymous"></script>
+    {% endblock %}
 </html>
