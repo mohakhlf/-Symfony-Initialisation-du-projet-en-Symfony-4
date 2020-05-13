@@ -1,10 +1,23 @@
 {% extends 'base.html.twig' %}
 {% block title %}Hello WildController!{% endblock %}
-
 {% block body %}
 <style>
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
-<h1>{{ website }} index</h1>
+    <h1>Toutes les séries de la table program : </h1>
+    {% for program in programs %}
+        {% set slug =  program.title |split(' ')|join('-')|lower %}
+        <div>
+            <h2>{{ loop.index }} / {{ program.title }} - Catégorie : {{ program.category.name }}</h2>
+            <p>{{ program.summary }}</p>
+            <a href="show/{{ slug }}" class="btn btn-secondary btn-lg">{{ program.title }}</a>
+
+        </div>
+    {% else %}
+        Aucune série trouvée.
+    {% endfor %}
+    <a href="{{ path('app_index') }}">
+        Retour à l'accueil
+    </a>
 {% endblock %}

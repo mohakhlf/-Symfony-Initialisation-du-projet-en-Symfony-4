@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+{#{{ dump(categoryPrograms) }}#}
+    <div class="container-fluid mt-xl-5">
+        <div class="row mo_cat">
+    {% for categoryProgram in categoryPrograms %}
+        <div class="col-auto">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{ categoryProgram.poster }}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{ categoryProgram.title }}</h5>
+                    <p class="card-text">{{ categoryProgram.summary }}</p>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+        </div>
+    </div>
+{% endblock %}

@@ -7,9 +7,32 @@ $theme-colors: (
 @import "~bootstrap/scss/bootstrap";
 
 body {
-    background-color: #ffffff;
+    background-color: rgba(238,240,245,1);
+    margin-top: 5rem;
     h1
     {
         color: #52528f;
     }
+
+    .mo_cat
+    {
+        justify-content: space-around;
+    }
+
+    .mo_card_show
+    {
+        align-items: center!important;
+
+        .mo_img
+        {
+            width: 18rem;
+        }
+
+        .mo_hr_show
+        {
+            border: 1px solid;
+        }
+    }
 }
+
+

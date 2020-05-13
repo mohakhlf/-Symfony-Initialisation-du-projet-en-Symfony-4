@@ -8,6 +8,9 @@
         {% endblock %}
     </head>
     <body>
+    <header>
+        {% include 'layout/navbar.html.twig' %}
+    </header>
         {% block body %}{% endblock %}
     </body>
     {% block javascripts %}
