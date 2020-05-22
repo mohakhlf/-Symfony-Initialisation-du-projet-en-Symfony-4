@@ -1,23 +1,26 @@
 {% extends 'base.html.twig' %}
 {% block title %}Hello WildController!{% endblock %}
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-    <h1>Toutes les séries de la table program : </h1>
-    {% for program in programs %}
-        {% set slug =  program.title |split(' ')|join('-')|lower %}
-        <div>
-            <h2>{{ loop.index }} / {{ program.title }} - Catégorie : {{ program.category.name }}</h2>
-            <p>{{ program.summary }}</p>
-            <a href="show/{{ slug }}" class="btn btn-secondary btn-lg">{{ program.title }}</a>
-
+    <div class="container-fluid my-5">
+        <div class="col-6 mb-5">
+            <h1>Toutes les séries de la table program : </h1>
         </div>
-    {% else %}
-        Aucune série trouvée.
-    {% endfor %}
-    <a href="{{ path('app_index') }}">
-        Retour à l'accueil
-    </a>
+        {% for program in programs %}
+            {% set slug =  program.title |split(' ')|join('-')|lower %}
+            <div class="row mb-5">
+                <div class="col-12 d-inline-block">
+                        <h2>{{ loop.index }} - {{ program.title }} - Catégorie : {{ program.category.name }}</h2>
+                </div>
+                <div class="col-12">
+                    <p>{{ program.summary }}</p>
+                </div>
+                <div class="col-12">
+                    <a href="show/{{ slug }}" class="badge badge-pill badge-info ml-0">{{ program.title }}</a>
+                </div>
+            </div>
+        {% else %}
+            Aucune série trouvée.
+        {% endfor %}
+    </div>
+        <a href="{{ path('app_index') }}">Retour à l'accueil</a>
 {% endblock %}

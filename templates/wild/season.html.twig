@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<div class="container">
+    <div class="row">
+        {{ program.title }}
+        <hr>
+        {{ program.summary }}
+        <hr>
+        <h1>Saison {{ season.number }} sortie en {{ season.year }}</h1>
+        <h2>Synopsis</h2>
+        <p>{{ season.description }}</p>
+
+
+        <img src="{{ program.poster }}" alt="{{ program.title }}" style="width: 18rem;">
+        <hr>
+        {% for episode in episodes %}
+            {#    {{ dump(episode) }}#}
+            <h3>Épisodes {{ episode.number }}: {{ episode.title }}</h3>
+            <h4>Synopsis</h4>
+            <p>{{ episode.synopsis }}</p>
+            <a href="{{ path('wild_episode_show', {'id': episode.id}) }}" class="btn-light">Épisode {{ episode.number }}</a>
+            <br><hr>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

@@ -7,9 +7,13 @@ $theme-colors: (
 @import "~bootstrap/scss/bootstrap";
 
 body {
-    background-color: rgba(238,240,245,1);
-    margin-top: 5rem;
+    background-color: rgb(238, 240, 245);
+
     h1
+    {
+        color: #52528f;
+    }
+    h4
     {
         color: #52528f;
     }
@@ -25,7 +29,7 @@ body {
 
         .mo_img
         {
-            width: 18rem;
+            width: 34rem;
         }
 
         .mo_hr_show
@@ -36,3 +40,7 @@ body {
 }
 
 
+.position
+{
+    text-align: right;
+}

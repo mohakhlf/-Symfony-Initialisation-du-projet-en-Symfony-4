@@ -1,24 +1,36 @@
 {% extends 'base.html.twig' %}
-{#{% block title %}{{ title }}{% endblock %}#}
+{% block title %}{{ program.title }}{% endblock %}
 {% block body %}
-<div class="container mt-xl-5">
-    <div class="row mo_card_show">
-        <div class="media-body col-6">
-            <div class="card-body">
-                <h1 class="card-title mt-0">{{ program.title }}</h1>
-                <hr class="mo_hr_show secondary">
-                <br>
-                <p class="card-text">{{ program.summary }}</p>
-                <p class="card-text">Categorie : {{ program.category.name }}</p>
+<div class="container-fluid mt-xl-5">
+    <div class="row vh-85">
+        <div class="col-12 mb-3">
+            <div class="row mo_card_show">
+                <div class="media-body col-7">
+                    <div class="card-body">
+                        <h1 class="card-title mt-0">{{ program.title }}</h1>
+                        <hr class="mo_hr_show secondary">
+                        <br>
+                        <p class="card-text">{{ program.summary }}</p>
+                        <p class="card-text">Categorie : {{ program.category.name }}</p>
+                    </div>
+                </div>
+                <div class="card-img col-5">
+                    <img class="card-img-top mo_img" src="{{program.poster}}" alt="{{ program.title }} poster">
+                </div>
             </div>
         </div>
-        <div class="card-img col-6">
-            <img class="card-img-top mo_img" src="{{program.poster}}" alt="{{ program.title }} poster">
+        <div class="col mb-6">
+            <a class="btn btn-danger" href="{{ path('wild_index') }}">
+                Retour à l'accueil
+            </a>
         </div>
-
+        <div class="col mb-6 float-left border-primary">
+            {% set slug =  program.title |split(' ')|join('-')|lower %}
+            <a href="{{ path('wild_serie_show', {'slug': slug}) }}" class="btn btn-dark float-right">
+                Saisons {{ program.title }}
+            </a>
+        </div>
     </div>
 </div>
-    <a href="{{ path('wild_index') }}">
-        Retour à l'accueil
-    </a>
+
 {% endblock %}
